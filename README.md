@@ -1,4 +1,4 @@
-# domain = TBD
+#👋 Welcome 👋
 
 This repository contains the code for my portfolio website. The original html, css, and php were acquired from a free Colorlib theme and then further edited from the legend harrisonjanisma himself. His code can be found <a href="https://github.com/harrisonjansma/harrisonjansma.github.io">here</a> and the template can be found <a href="https://colorlib.com/wp/template/personal/">here</a>. As it was for Harrison, it was also a lot of fun tweaking the HTML to make it my own. Although I had some previous expereince with HTML and CSS in the past, it was love at first sight with this template. Thanks again, Harrison!
 
