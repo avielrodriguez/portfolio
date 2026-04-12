@@ -65,3 +65,41 @@
 }
 
 html { color-scheme: light; }
+
+/* Base */
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-size: var(--font-size-body);
+  line-height: 1.50;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, .h1 { font-size: var(--font-size-h1); font-weight: 700; line-height: 1.00; letter-spacing: var(--letter-spacing-h1); }
+h2, .h2 { font-size: var(--font-size-h2); font-weight: 700; line-height: 1.00; letter-spacing: var(--letter-spacing-h2); }
+h3, .h3 { font-size: var(--font-size-h3); font-weight: 700; line-height: 1.23; letter-spacing: var(--letter-spacing-h3); }
+h4, .h4 { font-size: var(--font-size-h4); font-weight: 700; line-height: 1.27; letter-spacing: -0.011em; }
+p { margin: 0 0 var(--space-2); }
+.body-lg { font-size: var(--font-size-body-lg); font-weight: 600; letter-spacing: var(--letter-spacing-body-lg); }
+.caption { font-size: var(--font-size-caption); color: var(--color-text-muted); }
+
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Focus: prefer :focus-visible, fall back to :focus for Safari/iOS < 15.4 */
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+:focus:not(:focus-visible) { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+/* Warm-white sections darken the link to stay above 4.5:1 */
+.section--warm a { color: var(--color-accent-active); }
+
+@media (max-width: 767px) {
+  h1, .h1 { font-size: 2.5rem; letter-spacing: -0.031em; }
+  h2, .h2 { font-size: 2rem;   letter-spacing: -0.031em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+  .btn:active { transform: none; }
+}
