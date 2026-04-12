@@ -123,3 +123,28 @@ a:hover { text-decoration: underline; }
 @media (max-width: 1199px) { .section__inner { max-width: 960px; } }
 @media (max-width: 991px)  { .section__inner { max-width: 720px; } }
 @media (max-width: 767px)  { .section { padding-block: 48px; } }
+
+.card,
+.single-portfolio,
+.single-blog,
+.feature-item,
+.single-team,
+.service-item {
+  background: var(--color-bg);
+  border: var(--border-whisper);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-level-2);
+  padding: var(--space-3);
+  transition: box-shadow 200ms ease;
+}
+
+@media (hover: hover) {
+  .card:hover,
+  .single-portfolio:hover,
+  .single-blog:hover,
+  .feature-item:hover,
+  .single-team:hover,
+  .service-item:hover {
+    box-shadow: var(--shadow-level-3);
+  }
+}
