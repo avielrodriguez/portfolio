@@ -1,0 +1,67 @@
+:root {
+  /* Color — Core */
+  --color-bg: #ffffff;
+  --color-bg-warm: #f6f5f4;              /* Warm White — section alternation */
+  --color-text: rgba(0,0,0,0.95);        /* Near-black */
+  --color-text-muted: #615d59;           /* Warm Gray 500 */
+  --color-text-subtle: #a39e98;          /* Warm Gray 300 */
+  --color-surface-dark: #31302e;         /* Warm Dark */
+
+  /* Color — Interactive */
+  --color-accent: #0075de;               /* Notion Blue */
+  --color-accent-active: #005bab;        /* darker for hover + warm-bg contrast */
+  --color-focus: #097fe8;
+  --color-badge-bg: #f2f9ff;
+  --color-badge-text: #097fe8;
+
+  /* Borders */
+  --border-whisper: 1px solid rgba(0,0,0,0.1);
+
+  /* Elevation — Notion Level 2 / Level 3 (4-layer whisper) */
+  --shadow-level-2:
+    rgba(0,0,0,0.04) 0px 4px 18px,
+    rgba(0,0,0,0.027) 0px 2.025px 7.84688px,
+    rgba(0,0,0,0.02) 0px 0.8px 2.925px,
+    rgba(0,0,0,0.01) 0px 0.175px 1.04062px;
+  --shadow-level-3:
+    rgba(0,0,0,0.01) 0px 1px 3px,
+    rgba(0,0,0,0.02) 0px 3px 7px,
+    rgba(0,0,0,0.02) 0px 7px 15px,
+    rgba(0,0,0,0.04) 0px 14px 28px,
+    rgba(0,0,0,0.05) 0px 23px 52px;
+
+  /* Spacing — 8px base */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-section: 96px;  /* default; 64–120 range per DESIGN.md §5 */
+
+  /* Radius */
+  --radius-btn: 4px;
+  --radius-card: 12px;
+  --radius-feature: 16px;
+  --radius-pill: 9999px;
+
+  /* Type — scale tokens (DESIGN.md §3) */
+  --font-sans: "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-size-h1:              4rem;     /* Display Hero 64px */
+  --font-size-display-2:       3.375rem; /* Display Secondary 54px */
+  --font-size-h2:              3rem;     /* Section Heading 48px */
+  --font-size-subhead-lg:      2.5rem;   /* Sub-heading Large 40px */
+  --font-size-h3:              1.625rem; /* 26px */
+  --font-size-h4:              1.375rem; /* 22px */
+  --font-size-body-lg:         1.25rem;  /* Body Large 20px */
+  --font-size-body:            1rem;     /* 16px */
+  --font-size-caption:         0.875rem; /* 14px */
+  --letter-spacing-h1:        -0.033em;  /* ≈ -2.125px @64px, survives zoom */
+  --letter-spacing-h2:        -0.031em;  /* ≈ -1.5px @48px */
+  --letter-spacing-h3:        -0.024em;
+  --letter-spacing-body-lg:   -0.006em;
+}
+
+@supports not (color: rgb(from white r g b)) {
+  /* no-op guard; kept so future baseline bumps have a hook */
+}
+
+html { color-scheme: light; }
