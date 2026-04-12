@@ -155,3 +155,25 @@ a:hover { text-decoration: underline; }
     box-shadow: var(--shadow-level-3);
   }
 }
+
+/* Owl-selector stacks — safe when children are block-level; scope padding to block-inline to avoid shorthand collisions */
+.stack-1 > * + * { margin-top: var(--space-1); }
+.stack-2 > * + * { margin-top: var(--space-2); }
+.stack-3 > * + * { margin-top: var(--space-3); }
+.stack-4 > * + * { margin-top: var(--space-4); }
+
+.pad-2 { padding-block: var(--space-2); padding-inline: var(--space-2); }
+.pad-3 { padding-block: var(--space-3); padding-inline: var(--space-3); }
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+
+/* Hero */
+.hero { padding-block: var(--space-section); }
+.hero h1 { max-width: 20ch; margin-bottom: var(--space-3); }
+.hero-sub {
+  font-size: var(--font-size-body-lg);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  max-width: 52ch;
+}
