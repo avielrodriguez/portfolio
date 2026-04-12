@@ -103,3 +103,23 @@ a:hover { text-decoration: underline; }
   * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
   .btn:active { transform: none; }
 }
+
+/* Nullify legacy section padding so our token spacing is authoritative */
+.section-gap { padding: 0 !important; }
+
+.section {
+  padding-block: var(--space-section);
+  padding-inline: var(--space-3);
+  background: var(--color-bg);
+}
+
+.section--warm { background: var(--color-bg-warm); }
+
+.section__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+@media (max-width: 1199px) { .section__inner { max-width: 960px; } }
+@media (max-width: 991px)  { .section__inner { max-width: 720px; } }
+@media (max-width: 767px)  { .section { padding-block: 48px; } }
