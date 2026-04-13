@@ -1,0 +1,215 @@
+:root {
+  /* Color — Core */
+  --color-bg: #ffffff;
+  --color-bg-warm: #f6f5f4;              /* Warm White — section alternation */
+  --color-text: rgba(0,0,0,0.95);        /* Near-black */
+  --color-text-muted: #615d59;           /* Warm Gray 500 */
+  --color-text-subtle: #a39e98;          /* Warm Gray 300 */
+  --color-surface-dark: #31302e;         /* Warm Dark */
+
+  /* Color — Interactive */
+  --color-accent: #0075de;               /* Notion Blue */
+  --color-accent-active: #005bab;        /* darker for hover + warm-bg contrast */
+  --color-focus: #097fe8;
+  --color-badge-bg: #f2f9ff;
+  --color-badge-text: #097fe8;
+
+  /* Borders */
+  --border-whisper: 1px solid rgba(0,0,0,0.1);
+
+  /* Elevation — Notion Level 2 / Level 3 (4-layer whisper) */
+  --shadow-level-2:
+    rgba(0,0,0,0.04) 0px 4px 18px,
+    rgba(0,0,0,0.027) 0px 2.025px 7.84688px,
+    rgba(0,0,0,0.02) 0px 0.8px 2.925px,
+    rgba(0,0,0,0.01) 0px 0.175px 1.04062px;
+  --shadow-level-3:
+    rgba(0,0,0,0.01) 0px 1px 3px,
+    rgba(0,0,0,0.02) 0px 3px 7px,
+    rgba(0,0,0,0.02) 0px 7px 15px,
+    rgba(0,0,0,0.04) 0px 14px 28px,
+    rgba(0,0,0,0.05) 0px 23px 52px;
+
+  /* Spacing — 8px base */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-section: 96px;  /* default; 64–120 range per DESIGN.md §5 */
+
+  /* Radius */
+  --radius-btn: 4px;
+  --radius-card: 12px;
+  --radius-feature: 16px;
+  --radius-pill: 9999px;
+
+  /* Type — scale tokens (DESIGN.md §3) */
+  --font-sans: "Inter", -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-size-h1:              4rem;     /* Display Hero 64px */
+  --font-size-display-2:       3.375rem; /* Display Secondary 54px */
+  --font-size-h2:              3rem;     /* Section Heading 48px */
+  --font-size-subhead-lg:      2.5rem;   /* Sub-heading Large 40px */
+  --font-size-h3:              1.625rem; /* 26px */
+  --font-size-h4:              1.375rem; /* 22px */
+  --font-size-body-lg:         1.25rem;  /* Body Large 20px */
+  --font-size-body:            1rem;     /* 16px */
+  --font-size-caption:         0.875rem; /* 14px */
+  --letter-spacing-h1:        -0.033em;  /* ≈ -2.125px @64px, survives zoom */
+  --letter-spacing-h2:        -0.031em;  /* ≈ -1.5px @48px */
+  --letter-spacing-h3:        -0.024em;
+  --letter-spacing-body-lg:   -0.006em;
+}
+
+@supports not (color: rgb(from white r g b)) {
+  /* no-op guard; kept so future baseline bumps have a hook */
+}
+
+html { color-scheme: light; }
+img { max-width: 100%; height: auto; }
+
+/* Base */
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-size: var(--font-size-body);
+  line-height: 1.50;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, .h1 { font-size: var(--font-size-h1); font-weight: 700; line-height: 1.00; letter-spacing: var(--letter-spacing-h1); }
+h2, .h2 { font-size: var(--font-size-h2); font-weight: 700; line-height: 1.00; letter-spacing: var(--letter-spacing-h2); }
+h3, .h3 { font-size: var(--font-size-h3); font-weight: 700; line-height: 1.23; letter-spacing: var(--letter-spacing-h3); }
+h4, .h4 { font-size: var(--font-size-h4); font-weight: 700; line-height: 1.27; letter-spacing: -0.011em; }
+p { margin: 0 0 var(--space-2); }
+.body-lg { font-size: var(--font-size-body-lg); font-weight: 600; letter-spacing: var(--letter-spacing-body-lg); }
+.caption { font-size: var(--font-size-caption); color: var(--color-text-muted); }
+
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Focus: prefer :focus-visible, fall back to :focus for Safari/iOS < 15.4 */
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+:focus:not(:focus-visible) { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+/* Warm-white sections darken the link to stay above 4.5:1 */
+.section--warm a { color: var(--color-accent-active); }
+
+@media (max-width: 767px) {
+  h1, .h1 { font-size: 2.5rem; letter-spacing: -0.031em; }
+  h2, .h2 { font-size: 2rem;   letter-spacing: -0.031em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+  .btn:active { transform: none; }
+}
+
+/* Nullify legacy section padding so our token spacing is authoritative */
+.section-gap { padding: 0 !important; }
+
+.section {
+  padding-block: var(--space-section) !important;
+  padding-inline: var(--space-3) !important;
+  background: var(--color-bg);
+}
+
+.section--warm { background: var(--color-bg-warm); }
+
+.section__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+@media (max-width: 1199px) { .section__inner { max-width: 960px; } }
+@media (max-width: 991px)  { .section__inner { max-width: 720px; } }
+@media (max-width: 767px)  { .section { padding-block: 48px !important; } }
+
+.card,
+.single-portfolio,
+.single-blog,
+.single-recent-blog,
+.single-services,
+.single-price,
+.feature-item,
+.single-team,
+.service-item {
+  background: var(--color-bg);
+  border: var(--border-whisper);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-level-2);
+  padding: var(--space-3);
+  transition: box-shadow 200ms ease;
+}
+
+@media (hover: hover) {
+  .card:hover,
+  .single-portfolio:hover,
+  .single-blog:hover,
+  .single-recent-blog:hover,
+  .single-services:hover,
+  .single-price:hover,
+  .feature-item:hover,
+  .single-team:hover,
+  .service-item:hover {
+    box-shadow: var(--shadow-level-3);
+  }
+}
+
+/* Owl-selector stacks — safe when children are block-level; scope padding to block-inline to avoid shorthand collisions */
+.stack-1 > * + * { margin-top: var(--space-1); }
+.stack-2 > * + * { margin-top: var(--space-2); }
+.stack-3 > * + * { margin-top: var(--space-3); }
+.stack-4 > * + * { margin-top: var(--space-4); }
+
+.pad-2 { padding-block: var(--space-2); padding-inline: var(--space-2); }
+.pad-3 { padding-block: var(--space-3); padding-inline: var(--space-3); }
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+
+/* Hero */
+.hero { padding-block: var(--space-section); }
+.hero h1 { max-width: 20ch; margin-bottom: var(--space-3); }
+.hero-sub {
+  font-size: var(--font-size-body-lg);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  max-width: 52ch;
+}
+
+.btn,
+.primary-btn,
+.genric-btn.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-accent);
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  font-size: 0.94rem;
+  line-height: 1.33;
+  transition: background 150ms ease, transform 100ms ease;
+}
+.btn:hover,
+.primary-btn:hover { background: var(--color-accent-active); text-decoration: none; color: #fff; }
+.btn:active { transform: scale(0.96); }
+
+.badge-pill {
+  display: inline-block;
+  padding: 4px var(--space-1);
+  background: var(--color-badge-bg);
+  color: var(--color-badge-text);
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.125px;
+}
+
+/* Skill bar CLS guard — reserve space before JS fills data-width */
+.single-skill .progress,
+.single-skill .progress-bar { min-height: 8px; }
+.single-skill .lbl { min-height: 1.25em; display: inline-block; }
