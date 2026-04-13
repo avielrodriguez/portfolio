@@ -1,0 +1,11 @@
+# Playwright MCP verification artifacts
+.playwright-mcp/
+
+# Screenshot captures from Claude/Playwright verification passes
+gate*.png
+task*.png
+final-*.png
+
+# OS / editor
+.DS_Store
+Thumbs.db
