@@ -208,3 +208,8 @@ a:hover { text-decoration: underline; }
   font-weight: 600;
   letter-spacing: 0.125px;
 }
+
+/* Skill bar CLS guard — reserve space before JS fills data-width */
+.single-skill .progress,
+.single-skill .progress-bar { min-height: 8px; }
+.single-skill .lbl { min-height: 1.25em; display: inline-block; }
