@@ -1,10 +1,14 @@
 # Playwright MCP verification artifacts
 .playwright-mcp/
 
+# Claude Code / VSCode extension local settings
+.claude/
+
 # Screenshot captures from Claude/Playwright verification passes
 gate*.png
 task*.png
 final-*.png
+live-*.png
 
 # OS / editor
 .DS_Store
